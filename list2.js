@@ -15,7 +15,7 @@ const numbers2 = l(3, 2, 9);
 concat(numbers, numbers2); // (3, 4, 5, 8, 3, 2, 9)
 */
 export const has = (numbers, n) => {
-  while (isEmpty(numbers) === false) {
+  while (empty(numbers) === false) {
     if (head(numbers) === n) { return true;}
     numbers = tail(numbers);
   }
@@ -23,7 +23,7 @@ export const has = (numbers, n) => {
 };
 export const reverse = (numbers) => {
   let result = l();
-  while (isEmpty(numbers) === false) {
+  while (empty(numbers) === false) {
     result = cons(head(numbers), result);
     numbers = tail(numbers);
   }
@@ -31,7 +31,7 @@ export const reverse = (numbers) => {
 };
 
 export const concat2 = (numbers, numbers2) => {
-  if (isEmpty(numbers)) {
+  if (empty(numbers)) {
     return numbers2;
   }
   return concat2(tail(numbers), cons(head(numbers), numbers2));

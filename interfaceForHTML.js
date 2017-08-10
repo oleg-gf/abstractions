@@ -18,11 +18,12 @@ toString(dom);
 */
 import { cons, car, cdr, toString as pairToString } from 'pairs';
 import { l, isEmpty, head, tail, cons as consList, toString as listToString } from 'list';
-import { append } from 'list3'
+import { append as  consList} from 'list3'
 export const make = () =>  l();
 export const node = (name, value) => cons(name, value);
 export const name = (pair) => car(pair);
 export const value = (pair) => cdr(pair);
+export const append = (dom, node) =>  consList(dom, node);
 export const toString = (x) => {
   if (isEmpty(x)) {
     return '';

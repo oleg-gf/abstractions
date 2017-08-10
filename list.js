@@ -7,7 +7,7 @@ const l = (...args) => {
     return null;
   }
   const iter = (arg, acc) => {
-    if (!arg) {
+    if (arg === undefined) {
       return null;
     }
     acc++;

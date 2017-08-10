@@ -16,7 +16,7 @@ const filter = (callback, list) => {
     if (empty(list)) {
     return acc;
     }
-    if (callback(head(list)) !== null) {
+    if (callback(head(list))) {
       acc = append(acc, head(list));
     }
     return iter(tail(list), acc)
@@ -41,6 +41,18 @@ const reduce = (callback, acc, list) => {
     }
     acc = callback(acc, head(list));
   return reduce(callback, acc, tail(list));
+};
+
+const quicksort = (list) => {
+    if (empty(list)) {
+      return l();
+    }
+    const pivot = head(list);
+    const greater = filter(item => item > pivot ? item : l(), list);
+    const less = filter(item => item < pivot ? item : l(), list);
+    const equal = filter(item => item === pivot ? item : l(), list);
+  console.log(toString(less), pivot, toString(equal), toString(greater));
+  return concat(quicksort(less), concat(equal, quicksort(greater)));
 };
 
 const list = l('gf', 'fgg2', 'fg', 'ghgcvd');

@@ -1,5 +1,5 @@
 const append = (list, item) => {
-  if (!item) {
+  if (item === null) {
     return list;
   }
   const iter = (list, acc) => {
@@ -16,7 +16,7 @@ const filter = (callback, list) => {
     if (empty(list)) {
     return acc;
     }
-    if (callback(head(list))) {
+    if (callback(head(list)) !== null) {
       acc = append(acc, head(list));
     }
     return iter(tail(list), acc)
